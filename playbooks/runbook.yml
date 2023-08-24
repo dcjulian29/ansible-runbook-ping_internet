@@ -1,9 +1,9 @@
 ---
-- hosts: all
+- name: Validate a host can ping another host on the Internet.
+  hosts: all
   any_errors_fatal: true
   become: true
   gather_facts: false
-  name: validate a host can ping another host on the Internet.
 
   tasks:
     - name: Ping 8.8.8.8
