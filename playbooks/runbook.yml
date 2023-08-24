@@ -1,0 +1,14 @@
+---
+- hosts: all
+  any_errors_fatal: true
+  become: true
+  gather_facts: false
+  name: validate a host can ping another host on the Internet.
+
+  tasks:
+    - name: Ping 8.8.8.8
+      ansible.builtin.command:
+        cmd: ping -c 1 8.8.8.8
+      register: results
+      changed_when: results.rc == 0
+      failed_when: results.rc != 0
